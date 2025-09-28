@@ -5,7 +5,12 @@ from functions import get_todos, write_todos
 
 # pip freeze > requirements.txt
 
+# http://share.streamlit.io/
+# https://shameem-todo.streamlit.app/
+
 todos = get_todos()
+
+st.set_page_config(layout="wide")
 
 def add_todo():
     todo = st.session_state['txtTodo']
@@ -15,8 +20,9 @@ def add_todo():
 
 st.title('My TODOs')
 st.subheader('This is my TODOs list.')
-st.write('This is to increase my productivity.')
+st.write('This is to increase my <b>productivity.</b>', unsafe_allow_html=True)
 
+st.text_input(label='Enter a todo:', placeholder='Enter a new todo...', on_change=add_todo, key='txtTodo')
 
 for i, todo in enumerate(todos):
     if todo != "\n":
@@ -27,8 +33,7 @@ for i, todo in enumerate(todos):
             del st.session_state[i]
             st.rerun()
 
-st.text_input(label='Enter a todo:', placeholder='Enter a new todo...', on_change=add_todo, key='txtTodo')
 
-st.session_state
+# st.session_state
 
 
