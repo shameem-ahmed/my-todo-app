@@ -1,5 +1,4 @@
-todo 1
-
-todo 3
-todo 2
-todo 51
+goto walking
+diet plan
+reduce smoking
+sleep well
